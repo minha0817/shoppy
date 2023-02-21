@@ -1,19 +1,30 @@
 import React from "react";
 import { GrEdit } from "react-icons/gr";
-import {FiShoppingBag} from "react-icons/fi";
+import { FiShoppingBag } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
     <nav>
       <div className="nav--left">
-        <FiShoppingBag />
-        <span>Shoppy</span>
+        <Link to={"/"}>
+          <FiShoppingBag />
+          <span>Shoppy</span>
+        </Link>
       </div>
       <div className="nav--right">
-        <span>Products</span>
-        <span>Carts</span>
-        <GrEdit />
-        <span>Login</span>
+        <Link to={"/products"}>
+          <span>Products</span>
+        </Link>
+        <Link to={"/mycart"}>
+          <span>Carts</span>
+        </Link>
+        <Link to={"/product/new"}>
+          <GrEdit />
+        </Link>
+        <Link to={"/login"}>
+          <span>Login</span>
+        </Link>
       </div>
     </nav>
   );
