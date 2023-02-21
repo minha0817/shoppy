@@ -8,7 +8,7 @@ import MyCart from "../src/components/MyCart";
 import NewProduct from "../src/components/NewProduct";
 import ProductDetail from "../src/components/ProductDetail";
 import Login from "../src/components/Login";
-import Nav from "../src/components/Nav";
+import Home from "../src/components/Home";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -17,6 +17,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        index: true,
+        path: '/',
+        element: <Home />
+      },
       {
         path: "/products",
         element: <AllProducts />,
@@ -35,10 +40,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
+  // {
+  //   path: "/login",
+  //   element: <Login />,
+  // },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
