@@ -16,10 +16,10 @@ export default function Nav() {
         <Link to={"/products"}>
           <span>Products</span>
         </Link>
-        <Link to={"/mycart"}>
+        <Link to={"/carts"}>
           <span>Carts</span>
         </Link>
-        <Link to={"/product/new"}>
+        <Link to={"/products/new"}>
           <GrEdit />
         </Link>
         <Link to={"/login"}>

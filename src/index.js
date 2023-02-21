@@ -8,6 +8,7 @@ import MyCart from "../src/components/MyCart";
 import NewProduct from "../src/components/NewProduct";
 import ProductDetail from "../src/components/ProductDetail";
 import Login from "../src/components/Login";
+import Nav from "../src/components/Nav";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -42,12 +43,12 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <RouterProvider router={router}>
     <React.StrictMode>
-      <App />
+      <RouterProvider router={router} />
+      {/* <App /> */}
     </React.StrictMode>
-  </RouterProvider>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
