@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GrEdit } from "react-icons/gr";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import User from "../components/User";
 import {login, logout, onUserStateChange} from "../api/firebase";
 
 export default function Nav() {
@@ -29,6 +30,7 @@ export default function Nav() {
           <GrEdit />
         </Link>
 
+        {user && <User user={user}/>}
         {!user && <span onClick={login}>Login</span>}
         {user && <span onClick={logout}>Logout</span>}
 
