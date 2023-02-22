@@ -3,15 +3,13 @@ import { GrEdit } from "react-icons/gr";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import User from "../components/User";
-import { login, logout, onUserStateChange } from "../api/firebase";
+import { login, logout } from "../api/firebase";
 import Button from "./ui/Button";
+import { useAuthContext } from "./context/AuthContext";
 
 export default function Nav() {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    onUserStateChange(setUser);
-  }, []);
+  
+  const {user, login, logout} = useAuthContext();
 
   return (
     <header className=" flex justify-between mx-auto border-b border-gray-300 p-2">
