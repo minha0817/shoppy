@@ -3,14 +3,14 @@ import { GrEdit } from "react-icons/gr";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import User from "../components/User";
-import {login, logout, onUserStateChange} from "../api/firebase";
+import { login, logout, onUserStateChange } from "../api/firebase";
 
 export default function Nav() {
   const [user, setUser] = useState();
 
   useEffect(() => {
     onUserStateChange(setUser);
-  }, [])
+  }, []);
 
   return (
     <header className=" flex justify-between mx-auto border-b border-gray-300 p-2">
@@ -23,17 +23,22 @@ export default function Nav() {
         <Link to={"/products"}>
           <span>Products</span>
         </Link>
-        <Link to={"/carts"}>
-          <span>Carts</span>
-        </Link>
-        <Link to={"/products/new"} className="text-2xl">
-          <GrEdit />
-        </Link>
 
-        {user && <User user={user}/>}
+        {user && (
+          <Link to={"/carts"}>
+            <span>Carts</span>
+          </Link>
+        )}
+
+        {user && user.isAdmin && (
+          <Link to={"/products/new"} className="text-2xl">
+            <GrEdit />
+          </Link>
+        )}
+
+        {user && <User user={user} />}
         {!user && <span onClick={login}>Login</span>}
         {user && <span onClick={logout}>Logout</span>}
-
       </nav>
     </header>
   );
