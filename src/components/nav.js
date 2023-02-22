@@ -21,9 +21,7 @@ export default function Nav() {
         <Link to={"/products/new"} className="text-2xl">
           <GrEdit />
         </Link>
-        <Link to={"/login"}>
-          <span>Login</span>
-        </Link>
+        <span>Login</span>
       </nav>
     </header>
   );
