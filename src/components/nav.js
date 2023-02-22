@@ -8,18 +8,8 @@ export default function Nav() {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    onUserStateChange((user) => {
-      setUser(user);
-    });
+    onUserStateChange(setUser);
   }, [])
-
-  const handleClickLogin = () => {
-    login().then(setUser);
-  };
-
-  const handleClickLogout = () => {
-    logout().then(setUser);
-  }
 
   return (
     <header className=" flex justify-between mx-auto border-b border-gray-300 p-2">
@@ -39,8 +29,8 @@ export default function Nav() {
           <GrEdit />
         </Link>
 
-        {!user && <span onClick={handleClickLogin}>Login</span>}
-        {user && <span onClick={handleClickLogout}>Logout</span>}
+        {!user && <span onClick={login}>Login</span>}
+        {user && <span onClick={logout}>Logout</span>}
 
       </nav>
     </header>
