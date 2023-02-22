@@ -1,6 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+  onAuthStateChanged
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,21 +16,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-const auth = getAuth();
-
-export default function login() {
-  getRedirectResult(auth)
+export async function login() {
+  return signInWithPopup(auth, provider)
     .then((result) => {
-      // This gives you a Google Access Token. You can use it to access Google APIs.
+      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-
       // The signed-in user info.
       const user = result.user;
-      console.log('user', user);
+      return user;
     })
     .catch((error) => {
       // Handle Errors here.
@@ -37,4 +39,19 @@ export default function login() {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
     });
+}
+
+export async function logout() {
+  return signOut(auth)
+    .then(() => null)
+    .catch((error) => {
+      // An error happened.
+    });
+}
+
+
+export async function onUserStateChange (callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user);
+  })
 }
