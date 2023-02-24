@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./ui/Button";
 import {uploadImage} from "../api/upload";
+import { addNewProduct } from "../api/firebase";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -11,7 +12,7 @@ export default function NewProduct() {
     uploadImage(file)
     .then(url => {
       console.log(url);
-      //Post new product on firebase
+      addNewProduct(product, url);
     })
   };
 
