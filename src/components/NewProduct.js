@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./ui/Button";
+import {uploadImage} from "../api/upload";
 
 export default function NewProduct() {
   const [product, setProduct] = useState({});
@@ -7,8 +8,11 @@ export default function NewProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Upload picture on Cloudinary and get URL from it.
-    //Post new product on firebase
+    uploadImage(file)
+    .then(url => {
+      console.log(url);
+      //Post new product on firebase
+    })
   };
 
   const handleChange = (e) => {
