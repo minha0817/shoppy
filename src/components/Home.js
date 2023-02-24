@@ -1,7 +1,12 @@
 import React from "react";
+import Products from "../components/Products";
 
-export default function Home () {
+
+export default function Home() {
   return (
-    <h1>home</h1>
-  )
+    <>
+      <h1>home</h1>
+      <Products />
+    </>
+  );
 }
