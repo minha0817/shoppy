@@ -2,7 +2,7 @@ import React from "react";
 import { GrEdit } from "react-icons/gr";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import User from "../components/User";
+import User from "./User";
 import Button from "./ui/Button";
 import { useAuthContext } from "./Context/AuthContext";
 
