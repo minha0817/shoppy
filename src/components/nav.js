@@ -7,8 +7,7 @@ import Button from "./ui/Button";
 import { useAuthContext } from "./Context/AuthContext";
 
 export default function Nav() {
-  
-  const {user, login, logout} = useAuthContext();
+  const { user, login, logout } = useAuthContext();
 
   return (
     <header className=" flex justify-between mx-auto border-b border-gray-300 p-2">
