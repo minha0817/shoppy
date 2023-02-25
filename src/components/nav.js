@@ -4,7 +4,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import User from "../components/User";
 import Button from "./ui/Button";
-import { useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "./Context/AuthContext";
 
 export default function Nav() {
   
