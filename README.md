@@ -24,7 +24,6 @@ A shopping web page.
 <hr>
 
 - Make product detail page
-- 
 - Make the page responsive
 
 
